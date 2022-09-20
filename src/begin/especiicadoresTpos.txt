@@ -1,0 +1,66 @@
+	Verbos:
+	%v o valor em um formato padrão
+	ao imprimir structs, o sinalizador de adição (%+v) adiciona nomes de campo
+	%#v uma representação de sintaxe Go do valor
+	%T uma representação de sintaxe Go do tipo do valor
+	%% um sinal de porcentagem literal; não consome valor
+	%t a palavra verdadeiro ou falso (booleno)
+	
+	Inteiros:
+	%b base 2
+	%c o caractere representado pelo ponto de código Unicode correspondente
+	%d base 10
+	%o base 8
+	%O base 8 com prefixo 0o
+	%q um literal de caractere entre aspas simples escapou com segurança com a sintaxe Go.
+	%x base 16, com letras minúsculas para a-f
+	%X base 16, com letras maiúsculas para A-F
+	%U Formato Unicode: U+1234; igual a "U+%04X"
+	
+	 flutuantes e complexos:
+	%b notação científica sem decimal com expoente uma potência de dois,
+	na forma de strconv.FormatFloat com o formato 'b',
+	por exemplo. -123456p-78
+	%e notação científica, ex. -1,234456e+78
+	%E notação científica, por exemplo -1,234456E+78
+	%f ponto decimal mas sem expoente, ex. 123.456
+	%F sinônimo de %f
+	%g %e para grandes expoentes, %f caso contrário. A precisão é discutida abaixo.
+	%G %E para grandes expoentes, %F caso contrário
+	%x notação hexadecimal (com potência decimal de dois expoentes), ex. -0x1,23abcp+20
+	%X notação hexadecimal maiúscula, por exemplo -0X1.23ABCP+20
+	
+	Strings:
+	
+	%s os bytes não interpretados da string ou fatia
+	%q uma string entre aspas duplas escapou com segurança com a sintaxe Go
+	%x base 16, minúscula, dois caracteres por byte
+	%X base 16, maiúscula, dois caracteres por byte
+	
+	Fatia:
+	
+	%p endereço do 0º elemento na notação de base 16, com 0x à esquerda
+	
+	Ponteiro:
+	
+	%p notação de base 16, com 0x à esquerda
+	Os verbos %b, %d, %o, %x e %X também funcionam com ponteiros,
+	formatar o valor exatamente como se fosse um inteiro.
+	
+	O formato padrão para %v é:
+	bool: %t
+	int, int8 etc.: %d
+	uint, uint8 etc.: %d, %#x se impresso com %#v
+	float32, complexo64, etc: %g
+	cordas
+	canal: %p
+	ponteiro: %p
+	
+	Para objetos compostos, os elementos são impressos usando essas regras, recursivamente, estabelecidas assim:
+	
+	struct:             {field0 field1 ...}
+	array, slice:       [elem0 elem1 ...]
+	maps:               map[key1:value1 key2:value2 ...]
+	pointer to above:   &{}, &[], &map[]
+
+

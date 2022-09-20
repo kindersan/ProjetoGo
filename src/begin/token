@@ -1,0 +1,7 @@
+
+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
+
+carson@carson-Aspire-E1-572:~/estruturaDeDadosC$ git remote -v
+origin	https://github.com/kindersan/modulogit.git (fetch)
+origin	https://github.com/kindersan/modulogit.git (push)
+carson@carson-Aspire-E1-572:~/estruturaDeDadosC$ git push -u origin master 
